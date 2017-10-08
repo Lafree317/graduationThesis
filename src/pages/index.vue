@@ -3,7 +3,7 @@
     <div class="index-left">
       <div class="index-left-block">
         <h2>全部产品</h2>
-        
+
         <template v-for="product in productList">
           <h3>{{ product.title}}</h3>
           <ul>
@@ -32,11 +32,12 @@
         v-for="(item, index) in boardList"
         :class="[{'line-last' : index % 2 !== 0}, 'index-board-' + item.id]">
           <div class="index-board-item-inner" >
+            <img v-bind:src="item.src"/>
             <h2>{{ item.title }}</h2>
             <p>{{ item.description }}</p>
             <div class="index-board-button">
               <router-link class="button" :to="{path: 'detail/' + item.toKey}">立即购买</router-link>
-            </div>  
+            </div>
           </div>
         </div>
       </div>
@@ -88,6 +89,7 @@ export default {
           title: '开放产品',
           description: '开放产品是一款开放产品',
           id: 'car',
+          src: require('../assets/images/1.png'),
           toKey: 'analysis',
           saleout: false
         },
@@ -95,6 +97,7 @@ export default {
           title: '品牌营销',
           description: '品牌营销帮助你的产品更好地找到定位',
           id: 'earth',
+          src: require('../assets/images/3.png'),
           toKey: 'count',
           saleout: false
         },
@@ -102,6 +105,7 @@ export default {
           title: '使命必达',
           description: '使命必达快速迭代永远保持最前端的速度',
           id: 'loud',
+          src: require('../assets/images/2.png'),
           toKey: 'forecast',
           saleout: true
         },
@@ -109,6 +113,7 @@ export default {
           title: '勇攀高峰',
           description: '帮你勇闯高峰，到达事业的顶峰',
           id: 'hill',
+          src: require('../assets/images/4.png'),
           toKey: 'publish',
           saleout: false
         }
@@ -167,6 +172,9 @@ export default {
 </script>
 
 <style scoped>
+
+
+
 .index-wrap {
   width: 1200px;
   margin: 0 auto;
@@ -218,22 +226,19 @@ export default {
   margin-right: 20px;
   margin-bottom: 20px;
 }
+
+
 .index-board-item-inner {
   min-height: 125px;
-  padding-left: 120px;
+  padding-left: 40px;
 }
-.index-board-car .index-board-item-inner{
-  background: url(../assets/images/1.png) no-repeat;
+
+.index-board-item-inner img {
+  float: left;
+  width: 100px;
+
 }
-.index-board-loud .index-board-item-inner{
-  background: url(../assets/images/2.png) no-repeat;
-}
-.index-board-earth .index-board-item-inner{
-  background: url(../assets/images/3.png) no-repeat;
-}
-.index-board-hill .index-board-item-inner{
-  background: url(../assets/images/4.png) no-repeat;
-}
+
 .index-board-item h2 {
   font-size: 18px;
   font-weight: bold;

@@ -12,7 +12,6 @@ import DetailPubPage from './pages/detail/publish'
 Vue.use(VueRouter)
 Vue.use(VueResource)
 let router = new VueRouter({
-	mode: 'history',
 	routes: [
 		{
 			path: '/',

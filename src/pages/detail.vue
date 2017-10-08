@@ -30,7 +30,7 @@ export default {
           active: false
         },
         {
-          name: '数据预测',
+          name: '11111数据预测',
           path: 'forecast',
           active: false
         },
